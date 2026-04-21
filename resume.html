@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Max Ogden | Résumé</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --navy: #0a0f1e;
+      --navy-mid: #111827;
+      --navy-card: #1a2236;
+      --accent: #38bdf8;
+      --accent2: #818cf8;
+      --text-muted-custom: #94a3b8;
+      --white: #f1f5f9;
+    }
+
+    body {
+      background-color: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    h1,h2,h3,h4,.mono { font-family: 'Space Mono', monospace; }
+
+    /* NAVBAR */
+    .navbar {
+      background: rgba(10,15,30,0.97);
+      border-bottom: 1px solid rgba(56,189,248,0.15);
+      position: sticky; top:0; z-index:999;
+    }
+    .navbar-brand { color:var(--accent)!important; font-family:'Space Mono',monospace; }
+    .nav-link { color:var(--text-muted-custom)!important; transition:color 0.2s; font-size:0.9rem; }
+    .nav-link:hover { color:var(--accent)!important; }
+
+    /* PAGE HEADER */
+    .resume-header {
+      background: radial-gradient(ellipse at 30% 50%, rgba(56,189,248,0.07) 0%, transparent 60%), var(--navy);
+      padding: 5rem 0 3rem;
+      border-bottom: 1px solid rgba(56,189,248,0.08);
+    }
+    .page-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    /* RESUME BODY */
+    .resume-body { padding: 4rem 0; }
+
+    .resume-section { margin-bottom: 3.5rem; }
+    .resume-section-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(56,189,248,0.15);
+    }
+
+    /* Entry block */
+    .resume-entry {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .entry-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted-custom);
+      min-width: 130px;
+      padding-top: 0.15rem;
+      letter-spacing: 0.04em;
+    }
+    .entry-content { flex: 1; }
+    .entry-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+    .entry-org {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .entry-desc {
+      color: var(--text-muted-custom);
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+    .entry-desc ul {
+      padding-left: 1.2rem;
+      margin: 0.4rem 0 0;
+    }
+    .entry-desc li { margin-bottom: 0.3rem; }
+
+    /* Skills grid */
+    .skill-chip {
+      display: inline-block;
+      background: rgba(56,189,248,0.08);
+      border: 1px solid rgba(56,189,248,0.18);
+      color: var(--accent);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin: 0.25rem;
+    }
+    .skill-group { margin-bottom: 1.25rem; }
+    .skill-group-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted-custom);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Awards */
+    .award-item {
+      background: var(--navy-card);
+      border: 1px solid rgba(56,189,248,0.08);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .award-icon { color: var(--accent); font-size: 1.1rem; margin-top: 0.1rem; }
+    .award-name { font-weight: 600; font-size: 0.95rem; }
+    .award-detail { color: var(--text-muted-custom); font-size: 0.85rem; }
+
+    /* Print button */
+    .btn-print {
+      background: transparent;
+      border: 1px solid rgba(56,189,248,0.3);
+      color: var(--text-muted-custom);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-print:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    footer {
+      background: var(--navy-card);
+      border-top: 1px solid rgba(56,189,248,0.08);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-muted-custom);
+      font-size: 0.85rem;
+      font-family: 'Space Mono', monospace;
+    }
+
+    @media print {
+      body { background: white; color: #111; }
+      .navbar, .btn-print, footer { display: none; }
+      .resume-header { background: white; padding: 1rem 0; }
+      .resume-section-title { color: #111; border-color: #ddd; }
+      .entry-date, .entry-desc, .award-detail { color: #444; }
+      .skill-chip { border-color: #aaa; color: #333; background: #f5f5f5; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">MWO</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" style="color:var(--accent)!important;" href="resume.html">Résumé</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="resume-header">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end flex-wrap gap-3">
+        <div>
+          <p class="page-tag">// Résumé</p>
+          <h1 style="font-size:2.5rem;margin-bottom:0.25rem;">Max William Ogden</h1>
+          <p style="color:var(--text-muted-custom);font-family:'Space Mono',monospace;font-size:0.85rem;">
+            Pre-Business &nbsp;·&nbsp; Brigham Young University &nbsp;·&nbsp; Provo, Utah
+          </p>
+          <linkedin.com/in/max-ogden-b12b45385/>
+          <!-- <p style="color:var(--accent);font-size:0.85rem;">[email] · linkedin.com/in/[handle]</p> -->
+        </div>
+        <button class="btn-print" onclick="window.print()">
+          <i class="bi bi-printer me-1"></i> Print / Save PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUME BODY -->
+  <div class="resume-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+
+          <!-- EDUCATION -->
+          <div class="resume-section">
+            <p class="resume-section-title">Education</p>
+
+            <div class="resume-entry">
+              <span class="entry-date">2025 – Present</span>
+              <div class="entry-content">
+                <p class="entry-title">Pre-Business</p>
+                <p class="entry-org">BYU</p>
+                <div class="entry-desc">
+                  GPA: 3.78  
+                </div>
+              </div>
+            </div>
+
+            <!-- Add more education entries if needed -->
+
+          </div>
+
+          <!-- WORK EXPERIENCE -->
+          <div class="resume-section">
+            <p class="resume-section-title">Work Experience</p>
+
+            <div class="resume-entry">
+              <span class="entry-date">August 2025 – Current</span>
+              <div class="entry-content">
+                <p class="entry-title">Shift Lead</p>
+                <p class="entry-org">Habit Burger Grill &nbsp;·&nbsp; Provo, Utah</p>
+                <div class="entry-desc">
+                  <ul>
+                    <li>Hired to help direct operations and lead more than 10 employees of Habit Burger Grill in Provo, Utah </li>
+                    <li>Trained to account for and handle money from daily sales, monitor inventory, and evaluate costs and revenue</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Duplicate this block for additional jobs -->
+            <div class="resume-entry">
+              <span class="entry-date">June 2021 – January 2023</span>
+              <div class="entry-content">
+                <p class="entry-title">Cashier</p>
+                <p class="entry-org">Habit Burger Grill &nbsp;·&nbsp; Roseville, California</p>
+                <div class="entry-desc">
+                  <ul>
+                    <li>Trained on every position at the Habit Burger Grill, relating to preparation and distribution of food products, starting with front of house operations and eventually moving to back of house operations</li>
+                    <li>Learned to deal with difficult coworkers and to perform tasks in high stress situations</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- AWARDS & HONORS (optional section) -->
+          <div class="resume-section">
+            <p class="resume-section-title">Awards &amp; Honors</p>
+
+            <div class="award-item">
+              <div>
+                <p class="award-name">Eagle Scout</p>
+                <p class="award-detail">Scouts of America &nbsp;·&nbsp; 2019</p>
+              </div>
+            </div>
+
+            <div class="award-item">
+              <div>
+                <p class="award-name">Determined Advanced in Portuguese</p>
+                <p class="award-detail">OPIc &nbsp;·&nbsp; 2025</p>
+              </div>
+            </div>
+
+            <!-- Add or remove award items as needed -->
+          </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-4">
+          <!-- LANGUAGES (optional) -->
+          <div class="resume-section">
+            <p class="resume-section-title">Languages</p>
+            <div class="entry-desc">
+              <p>English — Native</p>
+              <p>Portuguese — Fluent</p>
+              <p>Spanish — Conversational</p>
+            </div>
+          </div>
+
+          <!-- INTERESTS (optional) -->
+          <div class="resume-section">
+            <p class="resume-section-title">Other</p>
+            <div class="entry-desc" style="color:var(--text-muted-custom);">
+              Played two years of basketball and four years of varsity volleyball in high school. Served a mission for The Church of Jesus Christ of Latter Day Saints for two years in Piracicaba, Brazil.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Ogden — <a href="index.html" style="color:var(--accent);text-decoration:none;">Back to Portfolio</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

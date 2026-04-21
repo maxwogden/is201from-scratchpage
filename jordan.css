@@ -1,0 +1,329 @@
+/* jordan.css â€” From-Scratch Stylesheet */
+
+/* â”€â”€ FONT DEFINITIONS â”€â”€ */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+/* â”€â”€ CSS VARIABLES â”€â”€ */
+:root {
+  --red: #c8102e;       /* Chicago Bulls red */
+  --black: #000000;
+  --dark-gray: #1a1a1a;
+  --mid-gray: #2e2e2e;
+  --gold: #d4a017;
+  --light-text: #e8e8e8;
+  --muted-text: #aaaaaa;
+  --white: #ffffff;
+}
+
+/* â”€â”€ RESET â”€â”€ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* â”€â”€ DIV 1: BODY / PAGE WRAPPER â”€â”€ */
+#page-wrapper {
+  background-color: var(--black);
+  color: var(--light-text);
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* â”€â”€ HEADER â”€â”€ */
+#site-header {
+  background-color: var(--red);
+  padding: 0.6rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid var(--black);
+}
+
+#site-header .logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+nav#top-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-left: 1.5rem;
+  transition: color 0.2s;
+}
+
+nav#top-nav a:hover { color: var(--gold); }
+
+/* â”€â”€ DIV 2: HERO SECTION â”€â”€ */
+#hero-section {
+  background-color: var(--dark-gray);
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(200,16,46,0.04) 40px,
+      rgba(200,16,46,0.04) 41px
+    );
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero-section::after {
+  content: '23';
+  position: absolute;
+  font-family: 'Oswald', sans-serif;
+  font-size: 22rem;
+  font-weight: 700;
+  color: rgba(200,16,46,0.04);
+  bottom: -3rem;
+  right: -1rem;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.hero-title span { color: var(--red); }
+
+.hero-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.05rem;
+  color: var(--muted-text);
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.4rem;
+  border-radius: 2px;
+}
+
+/* â”€â”€ MAIN CONTENT AREA â”€â”€ */
+#main-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Section headings */
+.section-heading {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+.red-bar {
+  width: 48px;
+  height: 4px;
+  background-color: var(--red);
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+/* Paragraph text */
+p.body-text {
+  font-family: 'Lato', sans-serif;
+  color: var(--muted-text);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+/* â”€â”€ PHOTO â”€â”€ */
+.photo-block {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.photo-block img {
+  max-width: 100%;
+  width: 680px;
+  border: 4px solid var(--red);
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+.photo-caption {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+  margin-top: 0.75rem;
+}
+
+/* â”€â”€ DIV 3: FACT BOX â”€â”€ */
+#fact-box {
+  background-color: var(--mid-gray);
+  border-left: 5px solid var(--red);
+  border-radius: 4px;
+  padding: 2rem 2rem 1.5rem;
+  margin: 2.5rem 0;
+}
+
+#fact-box .fact-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1rem;
+}
+
+/* Lists */
+ol.outer-list {
+  font-family: 'Lato', sans-serif;
+  color: var(--light-text);
+  font-size: 0.97rem;
+  line-height: 1.6;
+  padding-left: 1.4rem;
+}
+
+ol.outer-list > li {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+ol.outer-list > li span.li-label {
+  color: var(--gold);
+}
+
+ul.inner-list {
+  list-style-type: disc;
+  padding-left: 1.4rem;
+  margin-top: 0.4rem;
+}
+
+ul.inner-list li {
+  font-weight: 400;
+  color: var(--muted-text);
+  margin-bottom: 0.3rem;
+}
+
+/* â”€â”€ VIDEO SECTION â”€â”€ */
+.video-section { margin: 2.5rem 0; }
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border: 3px solid var(--red);
+  border-radius: 4px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* â”€â”€ BLOCKQUOTE â”€â”€ */
+.pull-quote {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--white);
+  border-left: 4px solid var(--gold);
+  padding: 1rem 1.5rem;
+  margin: 2.5rem 0;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.pull-quote cite {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted-text);
+  font-style: normal;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* â”€â”€ TABLEAU SECTION â”€â”€ */
+#tableau-section { margin: 2.5rem 0; }
+
+/* â”€â”€ FOOTER NAV â”€â”€ */
+#back-nav {
+  background-color: var(--dark-gray);
+  border-top: 3px solid var(--red);
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+#back-nav a {
+  font-family: 'Oswald', sans-serif;
+  color: var(--red);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 1rem;
+  transition: color 0.2s;
+}
+
+#back-nav a:hover { color: var(--gold); }
+
+/* â”€â”€ PAGE FOOTER â”€â”€ */
+#site-footer {
+  background-color: var(--black);
+  border-top: 1px solid var(--mid-gray);
+  text-align: center;
+  padding: 1.5rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  color: var(--muted-text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* â”€â”€ RESPONSIVE â”€â”€ */
+@media (max-width: 600px) {
+  #site-header { flex-direction: column; gap: 0.5rem; }
+  nav#top-nav a { margin-left: 0.75rem; }
+  .hero-title { font-size: 2rem; }
+}
